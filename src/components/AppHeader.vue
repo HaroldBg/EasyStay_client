@@ -1,7 +1,7 @@
 <script setup>
 import logo from '@/assets/easyStay.png'
 import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
-import {ref,provide} from "vue";
+import {ref } from "vue";
 import { startOfDay, isBefore,addDays } from 'date-fns';
 import { useStore } from '@/services/userData.js'
 
@@ -22,7 +22,6 @@ const formData = ref({
   nmb_per: ''
 })
 const researchData = ref(null)
-provide('researchData',researchData)
 const sendData = async () => {
   try {
     const response = await fetch('http://127.0.0.1:8000/api/chambre/searchRoom', {
@@ -33,7 +32,7 @@ const sendData = async () => {
       body: JSON.stringify(formData.value),
     })
     researchData.value = await response.json() // Capture response
-    store.setResponseData(await response.json())
+    store.setResponseData(researchData.value)
     console.log('Data sent successfully:', researchData.value)
   } catch (error) {
     console.error('Error sending data:', error)

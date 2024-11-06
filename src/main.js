@@ -17,12 +17,22 @@ import {createPinia} from "pinia";
 
 import VueDatePicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css'
+import Toast from 'vue-toastification';
+import 'vue-toastification/dist/index.css';
+const options = {
+    // Customize your options here
+    position: 'top-right',
+    timeout: 3000,
+    closeOnClick: true,
+    pauseOnHover: true,
+};
 // Add icon packs to the library
 library.add(fas, far, fab)
 
 const app = createApp(App)
 app.use(createPinia())
 app.use(router)
+app.use(Toast, options)
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.component('VueDatePicker', VueDatePicker)
 app.mount('#app')
