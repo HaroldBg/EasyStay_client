@@ -104,7 +104,7 @@ const sendData = async () => {
 </script>
 <template>
   <div v-if="chambre" class="container">
-    <h4 class="mt-4">z</h4>
+    <h4 class="mt-4">Details </h4>
     <div class=" mt-4 row">
       <div class="col-6"
            :style="{ borderTopLeftRadius: '10px', borderBottomLeftRadius: '10px',backgroundImage: `url(${apiUrlPic}/storage/${chambre.chambre.chambre_image[0].image_path})` }"
@@ -132,7 +132,7 @@ const sendData = async () => {
         <div class="d-flex flex-row justify-content-start mt-3">
           <div class="rounded-pill "
                style="height: 50px; width: 50px; background-size: cover; background-position: center;"
-               :style="{ backgroundImage: `url(${image})` }"></div>
+               :style="{ backgroundImage: `url(${apiUrlPic}/storage/${chambre.chambre.hotel.logo})` }"></div>
           <div class="d-flex flex-column justify-content-around mx-3">
             <span class="text-dark fw-bold">Hôtel : {{ chambre.chambre.hotel.nom }}</span>
             <span class="text-muted fw-medium">Votre confort notre priorité.</span>
