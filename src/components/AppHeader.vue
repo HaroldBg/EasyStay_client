@@ -34,6 +34,7 @@ const sendData = async () => {
     researchData.value = await response.json() // Capture response
     store.setResponseData(researchData.value)
     console.log('Data sent successfully:', researchData.value)
+
   } catch (error) {
     console.error('Error sending data:', error)
   }
